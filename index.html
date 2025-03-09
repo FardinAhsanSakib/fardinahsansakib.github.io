@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fardin Ahsan Sakib - Academic Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for better alignment */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .social-links a {
+            margin-left: 15px;
+            color: #555;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #3498db;
+        }
+
+        /* Section styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #3498db;
+            margin: 15px auto 0;
+        }
+
+        /* About section */
+        .about-section {
+            padding-top: 140px; /* Adjusted for fixed header */
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-small {
+            padding: 6px 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Research section */
+        .research-content {
+            display: flex;
+            gap: 40px;
+        }
+
+        .research-area, .research-focus {
+            flex: 1;
+        }
+
+        .research-area h3, .research-focus h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 1.6rem;
+        }
+
+        .research-area ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .research-area ul li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .research-focus p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Publications section */
+        .publications-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .publication-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 25px;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .publication-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .publication-tag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #3498db;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-radius: 0 8px 0 8px;
+        }
+
+        .publication-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .authors, .publication-details {
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .abstract {
+            margin: 15px 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .publication-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Experience section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #3498db;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            background-color: inherit;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 4px solid #3498db;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd):after {
+            right: -14px;
+        }
+
+        .timeline-item:nth-child(even):after {
+            left: -14px;
+        }
+
+        .timeline-date {
+            position: absolute;
+            width: 150px;
+            padding: 8px 12px;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: -180px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            left: -180px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .timeline-content p {
+            color: #666;
+        }
+
+        /* Education section */
+        .education-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .education-icon {
+            min-width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            margin-right: 20px;
+        }
+
+        .education-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .education-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .education-date {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Skills section */
+        .skills-container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .skills-column {
+            flex: 1;
+        }
+
+        .skills-column h3 {
+            margin-bottom: 25px;
+            color: #2c3e50;
+            font-size: 1.5rem;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: #3498db;
+        }
+
+        .language-item, .certification-item {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-name {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .language-level {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .certification-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+        }
+
+        .certification-item i {
+            color: #3498db;
+        }
+
+        /* Contact section */
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #3498db;
+            margin-right: 20px;
+            min-width: 25px;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-size: 1.2rem;
+        }
+
+        .contact-item p, .contact-item a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #3498db;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            margin-left: 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        /* Media queries for responsive design */
+        @media (max-width: 992px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .about-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .about-image {
+                margin-bottom: 30px;
+            }
+
+            .research-content {
+                flex-direction: column;
+            }
+
+            .publications-list {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline:before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd):after,
+            .timeline-item:nth-child(even):after {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-date,
+            .timeline-item:nth-child(even) .timeline-date {
+                right: auto;
+                left: 15px;
+                top: -40px;
+                width: auto;
+            }
+
+            .skills-container {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .footer-links a {
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Fardin Ahsan Sakib</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="social-links">
+                <a href="mailto:fardinahsan11@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/fardinahsansakib" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Hi there!</h2>
+                    <p>I am a Ph.D. student in the Department of Computer Science at George Mason University and part of the MasonNLP Research Group, where I am an NSF NRT Fellow. My research focuses on Natural Language Processing, Large Language Models, Medical Informatics, and Information Retrieval.</p>
+                    <p>I am particularly interested in applying Large Language Models (LLMs) to health information retrieval and analysis, exploring methods to identify and mitigate bias in LLMs, and enhancing explainability of health-related AI models.</p>
+                    <p>I am in the job market, graduating in May 2026, and looking for research positions as well as internships.</p>
+                    <div class="cv-button">
+                        <a href="#" class="btn">View CV</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/400/320" alt="Fardin Ahsan Sakib">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="research-section">
+        <div class="container">
+            <h2 class="section-title">Research</h2>
+            <div class="research-content">
+                <div class="research-area">
+                    <h3>Research Interests</h3>
+                    <ul>
+                        <li>Natural Language Processing</li>
+                        <li>Large Language Models</li>
+                        <li>Medical Informatics</li>
+                        <li>Information Retrieval</li>
+                    </ul>
+                </div>
+                <div class="research-focus">
+                    <h3>Current Research Focus</h3>
+                    <p>My current research focuses on applying Large Language Models (LLMs) to health information retrieval and analysis. I am exploring methods to identify and mitigate bias in LLMs, aiming to improve fairness and accuracy in health-related AI systems.</p>
+                    <p>I am also working on enhancing explainability of health-related AI models to increase transparency and trust in medical applications, facilitating better decision-making by healthcare professionals and addressing the needs of underrepresented populations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications-section">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="publications-list">
+                <div class="publication-item">
+                    <div class="publication-tag">NLP</div>
+                    <h3>MASON-NLP at eRisk 2023: Deep Learning-Based Detection of Depression Symptoms from Social Media Texts</h3>
+                    <p class="authors">Fardin Ahsan Sakib, et al.</p>
+                    <p class="publication-details">2023</p>
+                    <p class="abstract">This paper presents a deep learning-based approach for detecting depression symptoms from social media texts, contributing to the eRisk 2023 shared task.</p>
+                    <div class="publication-links">
+                        <a href="#" class="btn btn-small">Paper</a>
+                        <a href="#" class="btn btn-small">Code</a>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-tag">NLP</div>
+                    <h3>Intent Detection and Slot Filling for Home Assistants: Dataset and Analysis for Bangla and Sylheti</h3>
+                    <p class="authors">Fardin Ahsan Sakib, et al.</p>
+                    <p class="publication-details">2023</p>
+                    <p class="abstract">This study introduces a comprehensive dataset for intent detection and slot filling in formal Bangla, colloquial Bangla, and Sylheti languages, analyzing the robustness of large language models for these tasks.</p>
+                    <div class="publication-links">
+                        <a href="#" class="btn btn-small">Paper</a>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-tag">LLM</div>
+                    <h3>Extending the Frontier of ChatGPT: Code Generation and Debugging</h3>
+                    <p class="authors">Fardin Ahsan Sakib, et al.</p>
+                    <p class="publication-details">2023</p>
+                    <p class="abstract">This research explores the capabilities and limitations of ChatGPT in code generation and debugging tasks, providing insights into its potential applications in software development.</p>
+                    <div class="publication-links">
+                        <a href="#" class="btn btn-small">Paper</a>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-tag">NLP</div>
+                    <h3>To token or not to token: A Comparative Study of Text Representations for Cross-Lingual Transfer</h3>
+                    <p class="authors">Md. Mushfiqur Rahman, Fardin Ahsan Sakib, Fahim Faisal, Antonis Anastasopoulos</p>
+                    <p class="publication-details">2022</p>
+                    <p class="abstract">This research analyzes the importance of studying non-tokenization metrics and recommends a flow-chart to choose the best text-representation form for cross-lingual transfer.</p>
+                    <div class="publication-links">
+                        <a href="#" class="btn btn-small">Paper</a>
+                        <a href="#" class="btn btn-small">Code</a>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-tag">ML</div>
+                    <h3>Predicting User-specific Future Activities using LSTM-based Multi-label Classification</h3>
+                    <p class="authors">Fardin Ahsan Sakib, et al.</p>
+                    <p class="publication-details">2021</p>
+                    <p class="abstract">This paper presents an LSTM-based multi-label classification approach for predicting user-specific future activities, with applications in personalized recommendation systems.</p>
+                    <div class="publication-links">
+                        <a href="#" class="btn btn-small">Paper</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>June 2024 - Present</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Graduate Research Assistant</h3>
+                        <h4>George Mason University</h4>
+                        <p>Conducting research on applying Large Language Models (LLMs) to health information retrieval and analysis. Exploring methods to identify and mitigate bias in LLMs, aiming to improve fairness and accuracy in health-related AI systems. Enhancing explainability of health-related AI models to increase transparency and trust in medical applications.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>May 2024 - August 2024</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Applied Research Intern</h3>
+                        <h4>Brillient Corporation</h4>
+                        <p>Developed key components of BRAG (Brillient Retrieval-Augmented Generation) using PyTorch, implementing query distillation and synonym generation modules. Optimized information retrieval by designing efficient chunking algorithms and re-ranking methods, improving the relevance of extracted data by 22% and reducing processing time by 35%. Fine-tuned domain-specific large language models and performed advanced prompt engineering.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>May 2023 - May 2024</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>NSF Research Trainee</h3>
+                        <h4>George Mason University</h4>
+                        <p>NRT Fellow at the Center for Adaptive Systems of Brain-Body Interactions. Collaborated with community leaders to integrate advanced technological tools for domestic violence awareness. Led workshops on leveraging technology to recognize and report domestic violence, enhancing community vigilance. Spearheaded the creation of an app/platform providing immediate access to support services for domestic violence survivors.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>May 2023 - August 2023</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Machine Learning Engineer Intern</h3>
+                        <h4>Brillient Corporation</h4>
+                        <p>Engineered and fine-tuned advanced NLP models for tasks including question answering, summarization, emotion detection, and readability analysis, improving model performance by 12-18%. Architected and implemented an end-to-end machine learning pipeline from model development to AWS deployment and API creation using AWS SageMaker, Lambda, and API Gateway, reducing deployment time by 40%.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>August 2021 - May 2024</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Graduate Teaching Assistant</h3>
+                        <h4>George Mason University</h4>
+                        <p>Conducted labs, and evaluated quizzes, assignments, and tests to provide dedicated feedback to 100+ students. Held office hours with students to review materials, answer general questions, and provide assistance on assignments that improved student performance.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>November 2019 - December 2019</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Cyber Security Intern</h3>
+                        <h4>Islamic University of Technology</h4>
+                        <p>Used open-source tools like Nmap, Metasploit, Wireshark, Nessus, etc. to perform vulnerability analysis of various systems with high accuracy. Applied different strategies in Cyber Kill Chain Model and MITRE ATT&CK Model to defend systems under attack.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span>February 2018 - April 2018</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Software Engineer Intern</h3>
+                        <h4>Microsoft</h4>
+                        <p>Developed an app for stutterers for speech practice. Implemented methods to assess pronunciations and provide tailored recommendations which helped stutterers work on their weakness.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Doctor of Philosophy - PhD, Computer Science</h3>
+                        <h4>George Mason University</h4>
+                        <p class="education-date">August 2021 - May 2026 (Expected)</p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Bachelor of Science - BS, Computer Science and Engineering</h3>
+                        <h4>Islamic University of Technology</h4>
+                        <p class="education-date">January 2017 - March 2021</p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Higher Secondary Certificate, Science</h3>
+                        <h4>Scholarshome</h4>
+                        <p class="education-date">2014 - 2016</p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Secondary School Certificate, Science
