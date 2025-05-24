@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Fardin Ahsan Sakib</title>
+    <meta name="description" content="Blog posts by Fardin Ahsan Sakib on NLP, LLMs, and AI Research">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: #2b6cb0;
+            background: #ebf8ff;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .blog-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-header p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Posts */
+        .blog-posts {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .blog-post {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .blog-post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-color: #cbd5e0;
+        }
+
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        .blog-post-date {
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .blog-post-category {
+            background: #ebf8ff;
+            color: #2b6cb0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .blog-post h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .blog-post h2 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .blog-post h2 a:hover {
+            color: #2b6cb0;
+        }
+
+        .blog-post-excerpt {
+            color: #4a5568;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .blog-post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: #f7fafc;
+            color: #4a5568;
+            padding: 0.25rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .read-more {
+            color: #2b6cb0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: color 0.2s ease;
+        }
+
+        .read-more:hover {
+            color: #2c5aa0;
+        }
+
+        /* Filter/Search */
+        .blog-filters {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #ffffff;
+            transition: border-color 0.2s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #2b6cb0;
+            box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .category-filter {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            background: #ffffff;
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .category-filter:hover,
+        .category-filter.active {
+            background: #2b6cb0;
+            color: #ffffff;
+            border-color: #2b6cb0;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 0;
+            color: #718096;
+        }
+
+        .empty-state h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #e2e8f0;
+            color: #718096;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+
+            .blog-filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .category-filters {
+                justify-content: center;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .blog-post {
+                padding: 1.5rem;
+            }
+
+            .blog-post-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/research">Research</a></li>
+                <li><a href="/blog" class="active">Blog</a></li>
+                <li><a href="https://github.com/FardinAhsanSakib/fardinahsansakib.github.io/blob/a383e8607b4c1bef4c8b3c6dae15231b2b22964c/FardinAhsanSakibResumeV13.pdf" target="_blank">CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="blog-header">
+            <h1>Blog</h1>
+            <p>Thoughts on Natural Language Processing, Large Language Models, and AI Research</p>
+        </div>
+
+        <div class="blog-filters">
+            <div class="search-box">
+                <input type="text" placeholder="Search posts..." id="search-input">
+            </div>
+            <div class="category-filters">
+                <a href="#" class="category-filter active" data-category="all">All</a>
+                <a href="#" class="category-filter" data-category="research">Research</a>
+                <a href="#" class="category-filter" data-category="nlp">NLP</a>
+                <a href="#" class="category-filter" data-category="llm">LLMs</a>
+                <a href="#" class="category-filter" data-category="tutorial">Tutorials</a>
+                <a href="#" class="category-filter" data-category="paper-review">Paper Reviews</a>
+            </div>
+        </div>
+
+        <div class="blog-posts" id="blog-posts">
+            <!-- Sample Blog Posts -->
+            <article class="blog-post" data-category="research llm">
+                <div class="blog-post-meta">
+                    <span class="blog-post-date">May 15, 2025</span>
+                    <span class="blog-post-category">Research</span>
+                </div>
+                <h2><a href="/blog/spurious-correlations-sdoh">Understanding Spurious Correlations in SDOH Extraction</a></h2>
+                <p class="blog-post-excerpt">
+                    A deep dive into our ACL 2025 paper on identifying and mitigating shortcut learning in large language models for social determinants of health extraction. We explore how models can learn spurious patterns and propose solutions for more robust performance.
+                </p>
+                <div class="blog-post-tags">
+                    <span class="tag">Large Language Models</span>
+                    <span class="tag">Bias Mitigation</span>
+                    <span class="tag">Healthcare NLP</span>
+                </div>
+                <a href="/blog/spurious-correlations-sdoh" class="read-more">Read more →</a>
+            </article>
+
+            <article class="blog-post" data-category="tutorial nlp">
+                <div class="blog-post-meta">
+                    <span class="blog-post-date">April 28, 2025</span>
+                    <span class="blog-post-category">Tutorial</span>
+                </div>
+                <h2><a href="/blog/getting-started-with-transformers">Getting Started with Transformers for NLP</a></h2>
+                <p class="blog-post-excerpt">
+                    A comprehensive guide for beginners on understanding and implementing transformer models. From the attention mechanism to fine-tuning pre-trained models, this tutorial covers everything you need to know to start working with transformers.
+                </p>
+                <div class="blog-post-tags">
+                    <span class="tag">Transformers</span>
+                    <span class="tag">Attention</span>
+                    <span class="tag">Tutorial</span>
+                </div>
+                <a href="/blog/getting-started-with-transformers" class="read-more">Read more →</a>
+            </article>
+
+            <article class="blog-post" data-category="paper-review">
+                <div class="blog-post-meta">
+                    <span class="blog-post-date">April 12, 2025</span>
+                    <span class="blog-post-category">Paper Review</span>
+                </div>
+                <h2><a href="/blog/recent-advances-in-llm-reasoning">Recent Advances in LLM Reasoning: A Paper Review</a></h2>
+                <p class="blog-post-excerpt">
+                    Reviewing the latest developments in large language model reasoning capabilities. We examine recent papers on chain-of-thought prompting, tool use, and multi-step reasoning, discussing their implications for future research directions.
+                </p>
+                <div class="blog-post-tags">
+                    <span class="tag">Reasoning</span>
+                    <span class="tag">Chain-of-Thought</span>
+                    <span class="tag">Paper Review</span>
+                </div>
+                <a href="/blog/recent-advances-in-llm-reasoning" class="read-more">Read more →</a>
+            </article>
+
+            <article class="blog-post" data-category="research nlp">
+                <div class="blog-post-meta">
+                    <span class="blog-post-date">March 30, 2025</span>
+                    <span class="blog-post-category">Research</span>
+                </div>
+                <h2><a href="/blog/depression-detection-social-media">Depression Detection from Social Media: Lessons from eRisk 2023</a></h2>
+                <p class="blog-post-excerpt">
+                    Reflecting on our participation in the eRisk 2023 shared task for depression detection. We discuss the challenges of working with sensitive social media data and the ethical considerations in mental health NLP research.
+                </p>
+                <div class="blog-post-tags">
+                    <span class="tag">Mental Health</span>
+                    <span class="tag">Social Media</span>
+                    <span class="tag">Ethics</span>
+                </div>
+                <a href="/blog/depression-detection-social-media" class="read-more">Read more →</a>
+            </article>
+
+            <article class="blog-post" data-category="tutorial">
+                <div class="blog-post-meta">
+                    <span class="blog-post-date">March 15, 2025</span>
+                    <span class="blog-post-category">Tutorial</span>
+                </div>
+                <h2><a href="/blog/evaluation-metrics-nlp">Essential Evaluation Metrics for NLP Tasks</a></h2>
+                <p class="blog-post-excerpt">
+                    A practical guide to choosing and interpreting evaluation metrics for different NLP tasks. From BLEU scores for translation to F1 scores for classification, learn when and how to use each metric effectively.
+                </p>
+                <div class="blog-post-tags">
+                    <span class="tag">Evaluation</span>
+                    <span class="tag">Metrics</span>
+                    <span class="tag">Best Practices</span>
+                </div>
+                <a href="/blog/evaluation-metrics-nlp" class="read-more">Read more →</a>
+            </article>
+        </div>
+
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <h3>No posts found</h3>
+            <p>Try adjusting your search or filter criteria.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Fardin Ahsan Sakib. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Blog functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            const blogPosts = document.querySelectorAll('.blog-post');
+            const emptyState = document.getElementById('empty-state');
+            
+            let currentCategory = 'all';
+            let currentSearch = '';
+
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                currentSearch = this.value.toLowerCase();
+                filterPosts();
+            });
+
+            // Category filter functionality
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Update active state
+                    categoryFilters.forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    currentCategory = this.dataset.category;
+                    filterPosts();
+                });
+            });
+
+            function filterPosts() {
+                let visiblePosts = 0;
+
+                blogPosts.forEach(post => {
+                    const categories = post.dataset.category.split(' ');
+                    const title = post.querySelector('h2').textContent.toLowerCase();
+                    const excerpt = post.querySelector('.blog-post-excerpt').textContent.toLowerCase();
+                    const tags = Array.from(post.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                    
+                    const matchesCategory = currentCategory === 'all' || categories.includes(currentCategory);
+                    const matchesSearch = currentSearch === '' || 
+                        title.includes(currentSearch) || 
+                        excerpt.includes(currentSearch) ||
+                        tags.some(tag => tag.includes(currentSearch));
+                    
+                    if (matchesCategory && matchesSearch) {
+                        post.style.display = 'block';
+                        visiblePosts++;
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+
+                // Show/hide empty state
+                if (visiblePosts === 0) {
+                    emptyState.style.display = 'block';
+                } else {
+                    emptyState.style.display = 'none';
+                }
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
