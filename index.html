@@ -124,6 +124,23 @@
             border-radius: 12px;
             object-fit: cover;
             border: 3px solid #e2e8f0;
+            background: #f8f9fa;
+        }
+
+        /* Placeholder for profile image */
+        .profile-placeholder {
+            width: 260px;
+            height: 260px;
+            border-radius: 12px;
+            border: 3px solid #e2e8f0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         /* Section Styles */
@@ -291,9 +308,9 @@
                     <h1>Fardin Ahsan Sakib</h1>
                     <p class="title">PhD Student, Computer Science<br>George Mason University</p>
                     
-                    <p>I am a Ph.D. student in the Department of Computer Science at George Mason University and part of the MasonNLP Research Group, where I am an NSF NRT Fellow.</p>
+                    <p>I am a Ph.D. student in the Department of Computer Science at George Mason University and part of the MasonNLP Research Group</p>
                     
-                    <p>My research focuses on Natural Language Processing, Large Language Models, Medical Informatics, and Information Retrieval. I am particularly interested in applying LLMs to health information retrieval and exploring methods to identify and mitigate bias in LLMs.</p>
+                    <p>My research focuses on Natural Language Processing, Large Language Models, Medical Informatics, and Information Retrieval. I am particularly interested in applying LLMs to health data and exploring methods to identify and mitigate bias in LLMs.</p>
 
                     <div class="research-interests">
                         <span class="interest-tag">Natural Language Processing</span>
@@ -303,13 +320,13 @@
                     </div>
 
                     <div class="contact-links">
-                        <a href="mailto:fardinahsan11@gmail.com">Email</a>
-                        <a href="https://www.linkedin.com/in/fardinahsansakib" target="_blank">LinkedIn</a>
-                        <a href="#" target="_blank">Google Scholar</a>
-                        <a href="#" target="_blank">GitHub</a>
+                        <a href="mailto:fsakib@gmu.edu">Email</a>
+                        <a href="https://www.linkedin.com/in/fardinahsan-sakib/" target="_blank">LinkedIn</a>
+                        <a href="https://scholar.google.com/citations?hl=en&user=BA7JyPgAAAAJ" target="_blank">Google Scholar</a>
+<!--                         <a href="#" target="_blank">GitHub</a> -->
                     </div>
                 </div>
-                
+<!--                 image -->
                 <div class="profile-image">
                     <img src="https://i.postimg.cc/Hs0qYRxP/IMG-0518-cropped.jpg" alt="Fardin Ahsan Sakib">
                 </div>
@@ -320,6 +337,10 @@
         <section class="section">
             <h2>Recent News</h2>
             <ul class="news-list">
+                 <li class="news-item">
+                    <span class="news-date">06/2025</span>
+                    <div class="news-content">I am joining Amazon as an applied science intern for the summer! </div>
+                </li>               
                 <li class="news-item">
                     <span class="news-date">05/2025</span>
                     <div class="news-content">Paper on "Spurious Correlations and Beyond: Understanding and Mitigating Shortcut Learning in SDOH Extraction with Large Language Models" accepted to ACL 2025!</div>
@@ -346,7 +367,7 @@
             <div class="publication">
                 <h3>Spurious Correlations and Beyond: Understanding and Mitigating Shortcut Learning in SDOH Extraction with Large Language Models</h3>
                 <div class="authors">Fardin Ahsan Sakib, Ziwei Zhu, and Ozlem Uzuner</div>
-                <div class="venue">ACL 2025 (Short Paper)</div>
+                <div class="venue">ACL 2025</div>
                 <div class="publication-links">
                     <a href="#">Paper</a>
                     <a href="#">Code</a>
