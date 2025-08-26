@@ -289,6 +289,76 @@ nav ul li a:hover, nav ul li a.active {
     box-shadow: var(--shadow-lg);
 }
 
+/* Email copy tooltip - Fixed for consistent button styling */
+.email-container {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.contact-links .email-container a {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--card-bg);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 25px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    margin: 0;
+    text-decoration: none;
+    font-size: 1rem;
+    line-height: 1.7;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+.contact-links .email-container a:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.copy-tooltip {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--secondary-color);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+}
+
+.copy-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--secondary-color);
+}
+
+.copy-tooltip.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-2px);
+}
+
 .about-image {
     flex: 1;
     text-align: center;
@@ -606,6 +676,9 @@ nav ul li a:hover, nav ul li a.active {
     padding: 4px 12px;
     border-radius: 20px;
     display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
     font-size: 0.9rem;
 }
 
