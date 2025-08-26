@@ -71,7 +71,10 @@
                         <span class="interest-tag">Medical NLP</span>
                     </div>
                     <div class="contact-links">
-                        <a href="mailto:fsakib@gmu.edu">Email</a>
+                        <div class="email-container">
+                            <a href="#" id="copy-email" data-email="fsakib@gmu.edu">Email</a>
+                            <span id="copy-tooltip" class="copy-tooltip">Copied!</span>
+                        </div>
                         <a href="https://www.linkedin.com/in/fardinahsan-sakib/" target="_blank">LinkedIn</a>
                         <a href="https://scholar.google.com/citations?hl=en&user=BA7JyPgAAAAJ" target="_blank">Google Scholar</a>
                     </div>
@@ -87,6 +90,10 @@
         <section class="section" id="news">
             <h2>Recent News</h2>
             <ul class="news-list">
+                <li class="news-item">
+                    <span class="news-date">08/2025</span>
+                    <div class="news-content">Successfully completed a rewarding applied science internship at Amazon and back to school.</div>
+                </li>
                 <li class="news-item">
                     <span class="news-date">06/2025</span>
                     <div class="news-content">I am joining Amazon as an applied science intern for the summer!</div>
@@ -276,6 +283,42 @@
                     }
                 });
             });
+
+            // Copy email to clipboard functionality
+            const copyEmailBtn = document.getElementById('copy-email');
+            const copyTooltip = document.getElementById('copy-tooltip');
+            
+            if (copyEmailBtn && copyTooltip) {
+                copyEmailBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const email = this.getAttribute('data-email');
+                    
+                    // Copy to clipboard using the modern API
+                    navigator.clipboard.writeText(email).then(function() {
+                        // Show tooltip
+                        copyTooltip.classList.add('show');
+                        
+                        // Hide tooltip after 1.5 seconds
+                        setTimeout(function() {
+                            copyTooltip.classList.remove('show');
+                        }, 1500);
+                    }).catch(function() {
+                        // Fallback for older browsers
+                        const textArea = document.createElement('textarea');
+                        textArea.value = email;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        
+                        // Show tooltip
+                        copyTooltip.classList.add('show');
+                        setTimeout(function() {
+                            copyTooltip.classList.remove('show');
+                        }, 1500);
+                    });
+                });
+            }
         });
     </script>
 </body>
