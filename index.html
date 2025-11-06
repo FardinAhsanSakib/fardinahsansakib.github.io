@@ -43,15 +43,22 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="https://docs.google.com/document/d/1yIIp8DBFxKt4xm3E51Dw6eidi0CxE4sC/edit?usp=sharing&ouid=106019609492007311754&rtpof=true&sd=true">Resume</a></li>
-                <li><a href="#press">Press</a></li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="https://drive.google.com/file/d/1fsoSly4O5GzPhSDf7vgGsO6FQ0ncRQzh/view?usp=sharing" target="_blank">CV</a></li>
+                    <li><a href="#press">Press</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main class="container">
@@ -92,7 +99,7 @@
             <ul class="news-list">
                 <li class="news-item">
                     <span class="news-date">08/2025</span>
-                    <div class="news-content">Completed a rewarding applied science internship at Amazon, working on complex multi-step tool calling.</div>
+                    <div class="news-content">Successfully completed a rewarding applied science internship at Amazon and back to school.</div>
                 </li>
                 <li class="news-item">
                     <span class="news-date">06/2025</span>
@@ -131,9 +138,9 @@
                         <span class="exp-location">Seattle, WA</span>
                     </div>
                     <ul class="exp-summary">
-                        <li>Developed comprehensive evaluation datasets and frameworks for multi-step tool calling workflows in distributed cloud systems, contributing methodologies for agentic AI assessment.</li>
-                        <li>Engineered simulation-based testing infrastructure that eliminated benchmarking costs while achieving 100% reproducibility across complex tool calling and API integration scenarios.</li>
-                        <li>Conducted systematic analysis of leading large language models (LLMs) on multi-step tool calling orchestration, identifying key failure modes and establishing quantitative performance baselines for production deployment. </li>
+                        <li>Built CloudNEST, an expert-validated dataset for multi-step AWS tool calling (5–10+ chained APIs with cross-service dependencies) to assess agentic-AI workflows pre-production.</li>
+                        <li>Developed AWSBench, a deterministic AWS response simulator and evaluation harness enabling credential-less, cost-free, reproducible benchmarking with standardized precision/recall scoring for API selection, parameter extraction, and step sequencing.</li>
+                        <li>Benchmarked leading LLMs; identified failure modes (wrong API, name/parameter-format mismatches) and established baseline metrics (best 38% recall, 19% precision) for internal evaluations.</li>
                     </ul>
                 </div>
                 
@@ -257,6 +264,37 @@
         // Simple navigation highlight
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('nav a');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mainNav = document.getElementById('main-nav');
+            
+            // Mobile Navigation Toggle
+            if (mobileMenuBtn && mainNav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    mainNav.classList.toggle('active');
+                    
+                    // Prevent body scroll when menu is open
+                    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        mobileMenuBtn.classList.remove('active');
+                        mainNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Close mobile menu on escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+                        mobileMenuBtn.classList.remove('active');
+                        mainNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
             
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -265,8 +303,18 @@
                         return;
                     }
                     
+                    // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
                     this.classList.add('active');
+                    
+                    // Close mobile menu after clicking a link
+                    if (window.innerWidth <= 1023 && mobileMenuBtn && mainNav) {
+                        mobileMenuBtn.classList.remove('active');
+                        mainNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
                 });
             });
 
@@ -274,11 +322,16 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
                         });
                     }
                 });
@@ -319,6 +372,19 @@
                     });
                 });
             }
+            
+            // Handle window resize for mobile menu
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    if (window.innerWidth > 1023 && mobileMenuBtn && mainNav) {
+                        mobileMenuBtn.classList.remove('active');
+                        mainNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                }, 250);
+            });
         });
     </script>
 </body>
