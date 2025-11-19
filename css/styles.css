@@ -223,6 +223,9 @@ nav ul li a:hover, nav ul li a.active {
 
 .current-status {
     margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .status-badge {
@@ -1124,10 +1127,10 @@ footer {
     }
     
     .current-status {
-        text-align: center;
+        justify-content: center;
         margin-bottom: 20px;
     }
-    
+
     .status-badge {
         display: inline-block;
         font-size: 0.8rem;
@@ -1376,7 +1379,7 @@ footer {
     }
     
     .current-status {
-        text-align: left;
+        justify-content: flex-start;
     }
     
     .research-interests {
@@ -1476,7 +1479,7 @@ footer {
     }
     
     .current-status {
-        text-align: left;
+        justify-content: flex-start;
     }
     
     .research-interests {
