@@ -533,22 +533,6 @@
                 });
             });
 
-            // Scroll-reveal animation for sections
-            const revealEls = document.querySelectorAll('.section');
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if ('IntersectionObserver' in window && !prefersReducedMotion) {
-                revealEls.forEach(el => el.classList.add('reveal'));
-                const revealObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.12 });
-                revealEls.forEach(el => revealObserver.observe(el));
-            }
-
             // Copy email to clipboard functionality
             const copyEmailBtn = document.getElementById('copy-email');
             const copyTooltip = document.getElementById('copy-tooltip');
