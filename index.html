@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fardin Ahsan Sakib - PhD Researcher in NLP, LLMs & AI Safety at George Mason University</title>
     <meta name="description" content="Fardin Ahsan Sakib - PhD researcher at George Mason University working on AI safety for multi-agent systems and on interpretability and post-training for safer, fairer, more reliable LLMs, with interests in agentic memory and agent evaluation and applications to clinical NLP. Industry research internships in agentic AI and coding agents at Comcast, Fujitsu Research, and Amazon.">
-    <meta name="keywords" content="Fardin Ahsan Sakib, AI Safety, Multi-Agent Systems, Agentic AI, Agentic Memory, Agent Memory, Agent Evaluation, LLM Agents, Coding Agents, Tool Use, NLP, Natural Language Processing, Large Language Models, LLM, Mechanistic Interpretability, Inference-time Steering, Model Alignment, Post-training, Bias Mitigation, Fairness, Explainability, Clinical NLP, Healthcare AI, Generative AI, Machine Learning, Deep Learning, Fine-tuning, LoRA, RAG, Model Evaluation, Benchmarking, Verifier Models, Reward Modeling, PyTorch, Hugging Face, Python, AWS, George Mason University, PhD">
+    <meta name="keywords" content="Fardin Ahsan Sakib, AI Safety, Multi-Agent Systems, Multi-Agent Safety, Prompt Injection, Adversarial Robustness, Agentic AI, Agentic Memory, Agent Memory, Agent Evaluation, LLM-as-Judge, LLM Agents, Coding Agents, Tool Use, NLP, Natural Language Processing, Large Language Models, LLM, Mechanistic Interpretability, Inference-time Steering, Model Alignment, Post-training, RLHF, DPO, Bias Mitigation, Fairness, Explainability, Clinical NLP, Healthcare AI, Generative AI, Machine Learning, Deep Learning, Fine-tuning, LoRA, RAG, Model Evaluation, Benchmarking, Verifier Models, Reward Modeling, PyTorch, Hugging Face, Python, AWS, George Mason University, PhD">
     <meta property="og:title" content="Fardin Ahsan Sakib - PhD Researcher in AI Safety, Multi-Agent Systems & LLMs">
     <meta property="og:description" content="PhD researcher at George Mason University working on AI safety for multi-agent systems and interpretability/post-training for trustworthy LLMs, with interests in agentic memory and agent evaluation.">
     <meta property="og:type" content="website">
@@ -87,7 +87,7 @@
                     <p class="title">PhD Candidate, Computer Science<br>George Mason University</p>
                     <div class="current-status">
                         <span class="status-badge">Graduate Research Assistant @ George Mason University</span>
-                        <span class="status-badge">AI Research Intern @ Comcast</span>
+                        <span class="status-badge">U.S. Permanent Resident</span>
                     </div>
                     <p>I am a doctoral researcher in the Department of Computer Science at George Mason University and a member of the MasonNLP Research Group. My research spans the large language model lifecycle — interpretability, post-training, and evaluation — aimed at understanding how these models behave and making them dependable for real-world, high-stakes use such as clinical NLP and healthcare, with work published at venues like ACL and EMNLP. A central thread is AI safety: making models and the systems built on them fairer, more robust, and better aligned — from mitigating bias and reliability failures in LLMs to AI safety in multi-agent systems. Through research internships at Comcast, Fujitsu Research, and Amazon, I extend this to applied agentic AI — including agentic memory, agent evaluation, coding agents, and tool-calling workflows.</p>
                     <div class="research-interests">
@@ -120,6 +120,10 @@
         <section class="section" id="news">
             <h2>Recent News</h2>
             <ul class="news-list">
+                <li class="news-item">
+                    <span class="news-date">08/2026</span>
+                    <div class="news-content">Completed my AI Research Internship at Comcast (Xfinity Assistant, Applied AI), building cross-session memory and LLM-as-judge evaluation for a multi-agent assistant.</div>
+                </li>
                 <li class="news-item">
                     <span class="news-date">06/2026</span>
                     <div class="news-content">Started AI Research Internship at Comcast, working on agentic memory!</div>
@@ -161,13 +165,15 @@
                 <div class="experience-item">
                     <div class="exp-header">
                         <h3 class="exp-role">AI Research Intern</h3>
-                        <span class="exp-company">Comcast</span>
+                        <span class="exp-company">Comcast (Xfinity Assistant, Applied AI)</span>
                     </div>
                     <div class="exp-details">
-                        <span class="exp-dates">June 2026 – Present</span>
+                        <span class="exp-dates">June 2026 – August 2026</span>
+                        <span class="exp-location">Washington, DC</span>
                     </div>
                     <ul class="exp-summary">
-                        <li>Researching agentic memory for large language model agents.</li>
+                        <li>Designed and built cross-session memory for a multi-agent LLM assistant that adapts agent behavior for repeat customers, raising prior-context acknowledgment from 22% to 89%.</li>
+                        <li>Created an LLM-as-judge evaluation pipeline to measure memory quality and agent behavior, improving fact coverage from 45% to 80%.</li>
                     </ul>
                 </div>
 
@@ -181,8 +187,8 @@
                         <span class="exp-location">Santa Clara, CA</span>
                     </div>
                     <ul class="exp-summary">
-                        <li>Trained a verifier model for coding agents that evaluates and selects the best solution from multiple agent attempts on real-world software engineering tasks (SWE-Bench), improving resolve rate by 15%.</li>
-                        <li>Designed and implemented an end-to-end evaluation pipeline for scoring and ranking agent-generated solutions across multiple runs, supporting the team's research on inference-time scaling for coding agents.</li>
+                        <li>Engineered the candidate-selection stage for test-time scaling of LLM coding agents on SWE-Bench Verified, picking the best of 8 agent-generated patches using cross-agent test results.</li>
+                        <li>Trained an LLM verifier (87% accuracy) and compared it with test-based selection, showing that executable test evidence ranks candidate patches more reliably.</li>
                     </ul>
                 </div>
 
@@ -196,9 +202,8 @@
                         <span class="exp-location">Seattle, WA</span>
                     </div>
                     <ul class="exp-summary">
-                        <li>Built CloudNEST, an expert-validated dataset for multi-step AWS tool calling (5–10+ chained APIs with cross-service dependencies) to assess agentic-AI workflows pre-production.</li>
-                        <li>Developed AWSBench, a deterministic AWS response simulator and evaluation harness enabling credential-less, cost-free, reproducible benchmarking with standardized precision/recall scoring for API selection, parameter extraction, and step sequencing.</li>
-                        <li>Benchmarked leading LLMs; identified failure modes (wrong API, name/parameter-format mismatches) and established baseline metrics (best 38% recall, 19% precision) for internal evaluations.</li>
+                        <li>Built a multi-step tool-calling benchmark from real AWS support queries requiring chained, cross-service API calls, with a simulation server that replays recorded API responses for reproducible, cost-free agent evaluation.</li>
+                        <li>Benchmarked frontier LLM agents using step-level metrics and a validated LLM-as-judge, showing the best model resolved only ~20% of real support queries.</li>
                     </ul>
                 </div>
                 
@@ -212,15 +217,14 @@
                         <span class="exp-location">Reston, VA</span>
                     </div>
                     <ul class="exp-summary">
-                        <li>Developed key components of BRAG (Brillient Retrieval-Augmented Generation) using PyTorch, implementing query distillation and synonym generation modules to enhance contextual understanding across multiple domains.</li>
-                        <li>Optimized information retrieval by designing efficient chunking algorithms and re-ranking methods, improving relevance by 22% (MAP) and reducing processing time by 35%.</li>
-                        <li>Finetuned domain-specific LLMs and performed prompt engineering (chain-of-thought, tree-of-thought), deploying across medical, HR, and IRS domains with an 85% user satisfaction rate.</li>
+                        <li>Implemented query distillation, chunking, and re-ranking for a retrieval-augmented generation (RAG) system, improving retrieval relevance by 22% (MAP) and cutting processing time by 35%.</li>
+                        <li>Fine-tuned domain-specific LLMs and deployed the system across medical, HR, and IRS domains, reaching 85% user satisfaction.</li>
                     </ul>
                 </div>
                 
                 <div class="experience-item">
                     <div class="exp-header">
-                        <h3 class="exp-role">Graduate Teaching and Research Assistant</h3>
+                        <h3 class="exp-role">Graduate Research Assistant</h3>
                         <span class="exp-company">George Mason University</span>
                     </div>
                     <div class="exp-details">
@@ -228,9 +232,10 @@
                         <span class="exp-location">Fairfax, VA</span>
                     </div>
                     <ul class="exp-summary">
-                        <li>Researching applications of Foundation Models to health data, focusing on social determinants of health for improved medical information retrieval and analysis.</li>
-                        <li>Exploring methods to identify and mitigate bias in LLMs to improve fairness and accuracy in health-related AI systems, including explainability for transparency and trust.</li>
-                        <li>Conducting labs and facilitating discussions for 100+ students; providing individualized feedback on assessments to improve engagement and understanding.</li>
+                        <li>Designed evaluation frameworks exposing reliability failures in LLMs, showing models rely on spurious features such as demographic cues, with up to 37-point error gaps across groups.</li>
+                        <li>Developed an inference-time correction method that reads the model's layer-by-layer prediction trajectory to decide which predictions to fix — correcting up to 79% of errors with low break rates across three model families and four datasets, with no retraining.</li>
+                        <li>Proposed a training-free defense for multi-agent LLM systems against prompt injection, reducing attack success by over 80% with under one point of accuracy loss and outperforming seven existing defenses.</li>
+                        <li>Led labs and discussions for 100+ students, providing individualized feedback on assignments and exams.</li>
                     </ul>
                 </div>
                 
@@ -257,7 +262,12 @@
                 <div class="publication">
                     <h3>Trajectory-Guided Steering: Mitigating Spurious Feature Bias in Clinical Classification</h3>
                     <div class="authors"><span class="me">Sakib, Fardin Ahsan</span>; Ziwei Zhu; Özlem Uzuner</div>
-                    <div class="venue">Under review at COLM 2026</div>
+                    <div class="venue">Under review</div>
+                </div>
+                <div class="publication">
+                    <h3>The Model Knows Better: Defending Medical Multi-Agent Systems Against Prompt Injection</h3>
+                    <div class="authors"><span class="me">Sakib, Fardin Ahsan</span>; Ziwei Zhu; Özlem Uzuner</div>
+                    <div class="venue">Under review</div>
                 </div>
                 <div class="publication">
                     <h3>Spurious Correlations and Beyond: Understanding and Mitigating Shortcut Learning in SDOH Extraction with Large Language Models</h3>
@@ -356,6 +366,9 @@
                         <span class="chip">Bias Mitigation</span>
                         <span class="chip">AI Safety</span>
                         <span class="chip">Model Alignment</span>
+                        <span class="chip">Multi-Agent Systems</span>
+                        <span class="chip">Prompt Injection</span>
+                        <span class="chip">Adversarial Robustness</span>
                         <span class="chip">Clinical NLP</span>
                         <span class="chip">Healthcare AI</span>
                     </div>
@@ -365,17 +378,19 @@
                     <div class="skill-chips">
                         <span class="chip">Fine-tuning</span>
                         <span class="chip">LoRA</span>
+                        <span class="chip">RLHF</span>
+                        <span class="chip">DPO</span>
                         <span class="chip">RAG</span>
                         <span class="chip">Verifier Models</span>
                         <span class="chip">Reward Modeling</span>
                         <span class="chip">Model Evaluation</span>
                         <span class="chip">Benchmarking</span>
+                        <span class="chip">LLM-as-Judge</span>
                         <span class="chip">Agentic AI</span>
                         <span class="chip">Coding Agents</span>
-                        <span class="chip">Multi-Agent Systems</span>
                         <span class="chip">Tool Use</span>
+                        <span class="chip">Test-time Scaling</span>
                         <span class="chip">Prompt Engineering</span>
-                        <span class="chip">Distillation</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -384,6 +399,7 @@
                         <span class="chip">PyTorch</span>
                         <span class="chip">Hugging Face</span>
                         <span class="chip">Transformers</span>
+                        <span class="chip">LangChain</span>
                         <span class="chip">Multi-GPU Training</span>
                         <span class="chip">HPC Clusters</span>
                         <span class="chip">Vector Databases</span>
@@ -421,6 +437,14 @@
                     <div class="edu-meta">
                         <span class="edu-dates">August 2021 – December 2026</span>
                         <span class="edu-detail">Fairfax, VA · GPA 3.95 / 4.00</span>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <h3 class="edu-degree">M.S. in Computer Science</h3>
+                    <div class="edu-school">George Mason University</div>
+                    <div class="edu-meta">
+                        <span class="edu-dates">August 2021 – May 2024</span>
+                        <span class="edu-detail">Fairfax, VA</span>
                     </div>
                 </div>
                 <div class="education-item">
