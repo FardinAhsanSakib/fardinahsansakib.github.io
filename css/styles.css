@@ -71,53 +71,6 @@ img {
     height: auto;
 }
 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 25px;
-    transition: var(--transition);
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.btn:hover {
-    background-color: var(--secondary-color);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-.btn-small {
-    padding: 5px 10px;
-    font-size: 0.9rem;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    position: relative;
-    padding-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--primary-color);
-}
-
 /* Header Styles */
 header {
     background: rgba(255, 255, 255, 0.95);
@@ -164,16 +117,6 @@ nav ul li a:hover, nav ul li a.active {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     transform: translateY(-1px);
     box-shadow: var(--shadow);
-}
-
-.social-links a {
-    margin-left: 15px;
-    font-size: 1.2rem;
-    color: var(--light-text);
-}
-
-.social-links a:hover {
-    color: var(--primary-color);
 }
 
 /* Hero Section */
@@ -364,12 +307,6 @@ nav ul li a:hover, nav ul li a.active {
     transform: translateX(-50%) translateY(-2px);
 }
 
-.about-image {
-    flex: 1;
-    text-align: center;
-    position: relative;
-}
-
 .profile-image img {
     max-width: 400px;
     border-radius: 20px;
@@ -381,10 +318,6 @@ nav ul li a:hover, nav ul li a.active {
 .profile-image img:hover {
     transform: scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.cv-button {
-    margin-top: 30px;
 }
 
 /* Section Styles */
@@ -528,13 +461,6 @@ nav ul li a:hover, nav ul li a.active {
 
 .media-title a:hover {
     color: var(--primary-color);
-}
-
-.media-summary {
-    color: var(--text-color);
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin: 0;
 }
 
 /* Experience List Styles */
@@ -729,257 +655,11 @@ nav ul li a:hover, nav ul li a.active {
     text-decoration: underline;
 }
 
-/* Experience Section */
-.experience-section {
-    padding: 80px 0;
-    background-color: var(--bg-color);
-}
-
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    background-color: var(--border-color);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1px;
-}
-
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    width: 50%;
-    box-sizing: border-box;
-}
-
-.timeline-item:nth-child(odd) {
-    left: 0;
-}
-
-.timeline-item:nth-child(even) {
-    left: 50%;
-}
-
-.timeline-date {
-    position: absolute;
-    width: 160px;
-    padding: 8px 0;
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-    border-radius: 4px;
-    top: 20px;
-}
-
-.timeline-item:nth-child(odd) .timeline-date {
-    right: -80px;
-}
-
-.timeline-item:nth-child(even) .timeline-date {
-    left: -80px;
-}
-
-.timeline-content {
-    padding: 20px;
-    background-color: var(--light-bg);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-}
-
-.timeline-content h3 {
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-    color: var(--primary-color);
-}
-
-.timeline-content h4 {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: var(--light-text);
-    font-weight: 500;
-}
-
-/* Education Section */
-.education-section {
-    padding: 80px 0;
-    background-color: var(--light-bg);
-}
-
-.education-list {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.education-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
-    background-color: var(--bg-color);
-    border-radius: 8px;
-    padding: 25px;
-    box-shadow: var(--shadow);
-}
-
-.education-icon {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-right: 20px;
-}
-
-.education-content h3 {
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-    color: var(--primary-color);
-}
-
-.education-content h4 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    color: var(--light-text);
-    font-weight: 500;
-}
-
-.education-date {
-    font-style: italic;
-    color: var(--light-text);
-}
-
-/* Skills Section */
-.skills-section {
-    padding: 80px 0;
-    background-color: var(--bg-color);
-}
-
-.skills-container {
-    display: flex;
-    gap: 40px;
-}
-
-.skills-column {
-    flex: 1;
-}
-
-.skills-column h3 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-}
-
-.skill-item {
-    margin-bottom: 20px;
-}
-
-.skill-name {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
-}
-
-.skill-bar {
-    height: 10px;
-    background-color: var(--light-bg);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.skill-level {
-    height: 100%;
-    background-color: var(--primary-color);
-    border-radius: 5px;
-}
-
-.language-item, .certification-item {
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.language-name {
-    font-weight: 500;
-}
-
-.language-level {
-    color: var(--light-text);
-    font-style: italic;
-}
-
-.certification-item {
-    display: flex;
-    align-items: center;
-}
-
-.certification-item i {
-    color: var(--primary-color);
-    margin-right: 10px;
-}
-
-/* Contact Section */
-.contact-section {
-    padding: 80px 0;
-    background-color: var(--light-bg);
-}
-
-.contact-content {
-    display: flex;
-    justify-content: center;
-}
-
-.contact-info {
-    max-width: 600px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
-}
-
-.contact-item i {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-right: 20px;
-    margin-top: 5px;
-}
-
-.contact-item h3 {
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-    color: var(--primary-color);
-}
-
-.contact-item p {
-    color: var(--text-color);
-}
-
 /* Footer */
 footer {
     background-color: var(--secondary-color);
     color: white;
     padding: 30px 0;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-links a {
-    color: white;
-    margin-left: 15px;
-    font-size: 0.9rem;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
 }
 
 /* Mobile Navigation System */
@@ -1026,8 +706,6 @@ footer {
 .mobile-menu-btn.active .hamburger-line:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
 }
-
-/* Responsive Styles - Mobile First Approach */
 
 /* Mobile Styles (Default - 320px and up) */
 @media (max-width: 1023px) {
@@ -1688,8 +1366,6 @@ footer {
     font-size: 0.95rem;
 }
 
-/* Sections are always visible (scroll-reveal removed for reliability). */
-
 @media (max-width: 1023px) {
     .skill-category {
         padding: 22px 20px;
@@ -1772,5 +1448,75 @@ footer {
         align-items: flex-start;
         gap: 10px;
         padding: 20px;
+    }
+}
+
+/* ===== Blog page ===== */
+.blog-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.blog-main {
+    flex: 1;
+    padding-top: 100px;
+}
+
+.blog-list {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.blog-post {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+
+.blog-post-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 4px 0 8px;
+}
+
+.blog-post-title a {
+    color: var(--text-color);
+}
+
+.blog-post-title a:hover {
+    color: var(--primary-color);
+}
+
+.blog-post-excerpt {
+    color: var(--light-text);
+}
+
+.blog-empty {
+    text-align: center;
+    padding: 40px 24px;
+    border: 1px dashed var(--border-color);
+    border-radius: 16px;
+    background: var(--light-bg);
+}
+
+.blog-empty h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.blog-empty p {
+    color: var(--light-text);
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1023px) {
+    .blog-main {
+        padding-top: 80px;
     }
 }
